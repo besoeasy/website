@@ -24,27 +24,23 @@
     </div>
 
     <div class="flex flex-col items-stretch justify-center h-full relative z-20 max-w-5xl">
-      <!-- Main Heading (Epic Animated Title) -->
-      <div class="my-8 relative group cursor-default">
-        <h1
-          class="font-[var(--font-orbitron)] font-black text-[clamp(4rem,12vw,8rem)] leading-none tracking-[0.2em] text-yellow-300 animate-title-entrance select-none"
-          style="text-shadow: 0 0 30px rgba(253, 224, 71, 0.5), 0 0 60px rgba(253, 224, 71, 0.3)"
-        >
-          <span class="inline-block animate-letter-float" style="animation-delay: 0s">0</span
-          ><span class="inline-block animate-letter-float" style="animation-delay: 0.1s">X</span
-          ><span class="inline-block animate-letter-float" style="animation-delay: 0.2s">C</span
-          ><span class="inline-block animate-letter-float" style="animation-delay: 0.3s">H</span
-          ><span class="inline-block animate-letter-float" style="animation-delay: 0.4s">A</span
-          ><span class="inline-block animate-letter-float" style="animation-delay: 0.5s">T</span>
-        </h1>
-        <!-- Glowing underline -->
-        <div
-          class="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent group-hover:w-full transition-all duration-700 blur-sm"
-        ></div>
+      <!-- CSS Logo -->
+      <div class="flex items-center gap-6 mb-12 animate-fade-in-up">
+        <!-- Circular Badge -->
+        <div class="logo-badge">
+          <span class="logo-badge-text">0X</span>
+        </div>
+        
+        <!-- Logo Text -->
+        <div class="flex items-center gap-3">
+          <span class="logo-text logo-ox">0X</span>
+          <span class="logo-text logo-chat">CHAT</span>
+          <span class="logo-lightning">⚡</span>
+        </div>
       </div>
 
       <!-- Subtitle with stagger animation -->
-      <h2 class="font-[var(--font-orbitron)] text-gray-400/60 text-[clamp(1.2rem,3vw,2rem)] mt-6 tracking-wide animate-fade-in-up">
+      <h2 class="font-[var(--font-orbitron)] text-gray-400/60 text-[clamp(1.2rem,3vw,2rem)] tracking-wide animate-fade-in-up">
         <span class="inline-block animate-fade-in" style="animation-delay: 0.1s">Secure.</span>
         <span class="inline-block animate-fade-in" style="animation-delay: 0.2s">Private.</span>
         <span class="inline-block animate-fade-in" style="animation-delay: 0.3s">Decentralized.</span>
@@ -301,6 +297,81 @@
   }
   50% {
     transform: scale(1.5) rotate(-10deg) translateY(-5px);
+  }
+}
+
+/* CSS Logo Styles */
+.logo-badge {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fde047 0%, #facc15 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(253, 224, 71, 0.5), 0 0 60px rgba(253, 224, 71, 0.3);
+  transition: all 0.3s ease;
+  animation: logo-float 3s ease-in-out infinite;
+}
+
+.logo-badge:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 40px rgba(253, 224, 71, 0.7), 0 0 80px rgba(253, 224, 71, 0.4);
+}
+
+.logo-badge-text {
+  font-family: var(--font-orbitron), monospace;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -0.05em;
+}
+
+.logo-text {
+  font-family: var(--font-orbitron), monospace;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.logo-ox {
+  color: #fde047;
+  text-shadow: 0 0 30px rgba(253, 224, 71, 0.6);
+}
+
+.logo-chat {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.logo-text:hover {
+  transform: translateY(-3px);
+}
+
+.logo-lightning {
+  font-size: 3.5rem;
+  animation: lightning-pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(253, 224, 71, 0.9));
+}
+
+@keyframes logo-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes lightning-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
   }
 }
 </style>
